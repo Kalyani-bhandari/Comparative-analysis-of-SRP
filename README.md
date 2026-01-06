@@ -9,7 +9,7 @@ Soft Rot Pectobacteriaceae (SRP) are group of two different genus of pathogenic 
 - Characterization of aerobactin mediated iron acquisition iuc operons 
 - Analysis of bacterial communication system focusing on ExpI/ExpR and LuxS pathways
 
-## Diagramatic representation
+## Diagrams created
 - PCA loading plots
 - Heatmaps
 - Amino acid Divergence plot
