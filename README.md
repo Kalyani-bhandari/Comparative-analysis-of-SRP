@@ -12,7 +12,7 @@ Soft Rot Pectobacteriaceae (SRP) are group of two different genus of pathogenic 
 ## Diagrams created
 - PCA loading plots
 - Heatmaps
-- Amino acid Divergence plot
+- Amino acid Divergence plots
 
 ## Computing environment
 - HPC: Tempest (SLURM)
