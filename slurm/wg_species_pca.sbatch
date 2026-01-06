@@ -7,25 +7,25 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=256G
 
-# Author: Kalyani Bhandari
-# Project: Soft Rot Pectobacteriaceae comparative genomics
-# Purpose: Whole-genome protein PCA at species level across Dickeya, Pectobacterium, and Erwinia
-# HPC: Tempest (SLURM)
+#Author: Kalyani Bhandari
+#Project: Soft Rot Pectobacteriaceae comparative genomics
+#Purpose: Whole-genome protein PCA at species level across Dickeya, Pectobacterium, and Erwinia
+#HPC: Tempest (SLURM)
 
 echo "Starting Whole Genome Species-level PCA job"
 
-# Load conda and activate environment
+#activate_environment
 source ~/.bashrc
 conda activate blast_env
 
-# Move to working directory
-cd /home/g89x126/Labwork_Bioinformatics || exit 1
+#working_directory
+cd /home/....../.......
 
-# Create output folder
+#output_folder
 mkdir -p WG_PCA_output
 cd WG_PCA_output || exit 1
 
-#PYTHON CODE STARTS HERE#
+#PYTHON_CODE_STARTS_HERE
 python << 'EOF'
 import os
 import pandas as pd
@@ -35,29 +35,22 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# =======================
-# 0) Paths
-# =======================
+#0_Paths
 DATA_DIR = "/home/g89x126/Labwork_Bioinformatics/Protein_faa"
 
-# =======================
-# 1) FASTA file detection
-# =======================
+#1_FASTA_file_detection
 faa_files = [f for f in os.listdir(DATA_DIR) if f.endswith((".faa", ".fa"))]
 print("Total protein files found:", len(faa_files))
 
-# =======================
-# 2) Extract gene names
-# =======================
+#2_Extract_gene_names
 def extract_gene_name(header):
     header = header.replace(">", "").strip()
     before_bracket = header.split("[")[0].strip()
     tokens = before_bracket.split()
     return tokens[-1].strip(",.;:()[]") if tokens else None
 
-# =======================
-# 3) Presence/absence matrix
-# =======================
+#3_Presence/absence_matrix
+
 strain_to_genes = {}
 all_genes = set()
 
@@ -80,9 +73,8 @@ for strain, genes in strain_to_genes.items():
 
 print("Total unique gene names:", len(all_genes))
 
-# =======================
-# 4) Species definitions
-# =======================
+#4_Species_definitions
+
 dickeya_species = [
     'aquatica','chrysanthemi','dadantii','dianthicola','fangzhongdai',
     'lacustris','oryzae','parazeae','poaceiphila','solani','zea'
@@ -112,9 +104,7 @@ def classify_strain(name):
 PA["Genus"], PA["SpeciesLabel"] = zip(*PA.index.map(classify_strain))
 PA = PA[PA["Genus"].notna()].copy()
 
-# =======================
-# 5) PCA subsets
-# =======================
+#5_PCA_subsets
 subsets = {
     "Dickeya": PA[PA["Genus"] == "Dickeya"].index.tolist(),
     "Pectobacterium": PA[PA["Genus"] == "Pectobacterium"].index.tolist(),
@@ -126,9 +116,7 @@ unique_species = sorted(PA["SpeciesLabel"].unique())
 palette = sns.color_palette("hls", len(unique_species))
 color_map = dict(zip(unique_species, palette))
 
-# =======================
-# 6) PCA function
-# =======================
+#6_PCA_function
 def run_pca(name, strains):
     X = PA.loc[strains, all_genes].values
     if X.shape[0] < 2:
