@@ -43,7 +43,7 @@ dickeya_species = [
 ]
 
 pecto_species = [
-    'actinidae','aquaticum','araliae','aroidearum',
+    'actinidae','aquaticum','araliae','aroidearum','atrosepticum',
     'betavasculorum','brasiliense','carotovorum',
     'colocasium','fontis','jejuense','odoriferum',
     'parmentieri','parvum','peruviense','polaris',
