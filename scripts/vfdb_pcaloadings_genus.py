@@ -1,7 +1,4 @@
 
-#Load_environment
-source ~/.bashrc
-conda activate blast_env
 
 import pandas as pd
 import numpy as np
