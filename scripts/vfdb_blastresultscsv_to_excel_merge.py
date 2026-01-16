@@ -2,6 +2,7 @@
 source ~/.bashrc
 conda activate blast_env
 
+#run_the_script(python name.py)
 import os
 import pandas as pd
 
