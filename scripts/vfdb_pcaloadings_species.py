@@ -2,6 +2,7 @@
 source ~/.bashrc
 conda activate blast_env
 
+#run_the_script(python name.py)
 import pandas as pd
 import numpy as np
 from sklearn.decomposition import PCA
