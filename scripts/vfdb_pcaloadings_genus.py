@@ -36,7 +36,7 @@ for sheet, sseqs in strain_sseq_dict.items():
 dickeya_species = [
     'aquatica','chrysanthemi','dadantii','dianthicola',
     'fangzhongdai','lacustris','oryzae','parazeae',
-    'poaceiphila','solani','zea'
+    'poaceiphila','solani','undicola','zea'
 ]
 
 pecto_species = [
